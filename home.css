@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-bb--: #BBBBBB;
+    --color-3131--: #313131;
+    --color-92--: rgba(146, 146, 146, 0.542);
+    --color-ED--: #EDEDED;
+    --color-FF--: #FFFFFF;
+    --color-50--: #505050;
+
+    --background-view--: #8BA5AB;
+
+    font-size: 62.5%;
+}
+
+.container{
+    max-width: 1200px;
+    padding: 0 2%;
+    margin: 0 auto;
+}
+
+/* header */
+
+body{
+    background: var(--color-ED--);
+}
+
+header{
+    border-bottom: 3px solid;
+    color: var(--color-bb--);
+}
+
+.titulo{
+    margin: 10px 0;
+    color: var(--color-3131--);
+    font: 400 3.6rem 'Playfair Display SC', serif;
+}
+
+/* area-view */
+
+.border-radius{
+    padding: 50px 2%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.area-view{
+    width: 600px;
+    margin-right: 50px;
+    border: 1px solid var(--color-92--);
+    position: relative;
+}
+
+.area-insercao{
+    max-width: 40px;
+    padding: 2px;
+    outline: none;
+    position: absolute;
+    border: 1px solid var(--color-bb--);
+}
+
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --posicionamento .area-insercao-- */
+
+.area-view span{
+    font-size: 1.8rem;
+    color: var(--color-51--);
+    position: absolute;
+    cursor: pointer;
+}
+
+.area-view span.active{
+    color: var(--color-bb--);
+}
+
+[data-corrente="left"]{
+    top: 50%;
+    left: -10px;
+}
+
+[data-corrente="right"]{
+    top: 50%;
+    right: -10px;
+}
+
+
+/* top right */
+
+[data-incercao="top-left"]{
+    top: -10px;
+    left: -10px;
+    border-radius: 7px 0 0 0;
+}
+
+[data-incercao="top-left"]:focus{
+    animation: topLeft .5s forwards;
+}
+
+@keyframes topLeft{
+    to{
+        transform: translate(5px, 5px);
+    }
+}
+
+/* top-left */
+
+[data-incercao="top-right"]{
+    top: -10px;
+    right: -10px;
+    border-radius: 0 7px 0 0;
+}
+
+[data-incercao="top-right"]:focus{
+    animation: topRight .5s forwards;
+}
+
+@keyframes topRight{
+    to{
+        transform: translate(-5px, 5px);
+    }
+}
+
+/* bottom right */
+
+[data-incercao="bottom-right"]{
+    bottom: -10px;
+    left: -10px;
+    border-radius: 0 0 0 7px;
+}
+
+[data-incercao="bottom-right"]:focus{
+    animation: bottomRight .5s forwards;
+}
+
+@keyframes bottomRight{
+    to{
+        transform: translate(5px, -5px);
+    }
+}
+
+/* bottom left */
+
+[data-incercao="bottom-left"]{
+    bottom: -10px;
+    right: -10px;
+    border-radius: 0 0 7px 0;
+}
+
+[data-incercao="bottom-left"]:focus{
+    animation: bottomLeft .5s forwards;
+}
+
+@keyframes bottomLeft{
+    to{
+        transform: translate(-5px, -5px);
+    }
+}
+
+/* area view */
+
+[data-border="view"]{
+    width: 500px;
+    height: 320px;
+    margin: 32px auto;
+    background: var(--background-view--);
+    color: var(--color-3131--);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[data-border="view"] h2{
+    cursor: pointer;
+}
+
+/* btn admin */
+
+.adm-border input[type="button"]{
+    padding: 15px 28px;
+    margin-bottom: 20px;
+    font: 1.4rem 'IBM Plex Mono', Helvetica;
+    color: var(--color-50--);
+    background: var(--color-FF--);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: none;
+    display: block;
+    transition: .3s ease;
+    cursor: pointer;
+    outline: none;
+}
+
+.adm-border input[type="button"]:hover{
+    padding: 18px 30px;
+}
+
+.adm-border .medidas label{
+    margin-right: 10px;
+    font: 1.4rem 'IBM Plex Mono', Helvetica;
+    color: var(--color-50--);
+}
+
+@media (max-width: 900px){
+    .border-radius{
+        display: block;
+    }
+
+    .area-view{
+        max-width: 400px;
+    }
+
+    [data-border="view"]{
+        width: 230px;
+        height: 200px;
+    }
+
+    .area-view{
+        margin: 0 auto;
+    } 
+
+    .adm-border{
+        text-align: center;
+    }
+
+    .adm-border input[type="button"]{
+        margin: 30px;
+        display: inline-block;
+    }
+
+    .medidas{
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px){
+    .titulo{
+        font-size: 1.8rem;
+    }
+
+    [data-border="view"] h2{
+        font-size: 1.2rem;
+    }
+
+    .area-view{
+        max-width: 300px;
+    }
+
+    .adm-border input[type="button"]{
+        margin: 30px auto;
+        display: block;
+    }
+
+    [data-border="view"]{
+        width: 160px;
+        height: 120px;
+    }
+}
